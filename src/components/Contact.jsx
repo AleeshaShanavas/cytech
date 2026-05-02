@@ -16,13 +16,16 @@ export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [serverError, setServerError] = useState('')
 
   const updateField = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value })
     setErrors({ ...errors, [event.target.name]: '' })
+    setServerError('')
   }
 
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault()
     const nextErrors = {}
     if (!form.name.trim()) nextErrors.name = 'Please enter your name.'
@@ -31,9 +34,52 @@ export default function Contact() {
     if (form.message.trim().length < 10) nextErrors.message = 'Please add at least 10 characters.'
 
     setErrors(nextErrors)
-    if (Object.keys(nextErrors).length === 0) {
+    if (Object.keys(nextErrors).length !== 0) {
+      return
+    }
+
+    const serviceLabels = {
+      erp: 'ERP Software',
+      custom: 'Custom Software',
+      cloud: 'Cloud Solutions',
+      digital: 'Digital Marketing',
+    }
+
+    try {
+      setSubmitting(true)
+      setServerError('')
+      setSent(false)
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...form,
+          serviceLabel: serviceLabels[form.service] || form.service,
+        }),
+      })
+
+      const rawText = await response.text()
+      let data = {}
+
+      try {
+        data = rawText ? JSON.parse(rawText) : {}
+      } catch {
+        data = { message: rawText || 'Unexpected server response' }
+      }
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send email')
+      }
+
       setSent(true)
       setForm(initialForm)
+    } catch (error) {
+      setServerError(error instanceof Error ? error.message : 'Failed to send email')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -100,9 +146,10 @@ export default function Contact() {
                 {errors.message && <span className="mt-2 block text-sm text-red-600">{errors.message}</span>}
               </label>
             </div>
-            {sent && <p className="mt-5 rounded-lg border border-gray-200 bg-white p-3 text-sm font-semibold text-kienexBlue">Thank you. Kienex will contact you shortly.</p>}
-            <motion.button type="submit" className="primary-button mt-6 w-full gap-2 md:w-auto" whileTap={buttonTap}>
-              Send Message <FaPaperPlane />
+            {sent && <p className="mt-5 rounded-lg border border-gray-200 bg-white p-3 text-sm font-semibold text-kienexBlue">Thank you. Your message has been sent successfully.</p>}
+            {serverError && <p className="mt-5 rounded-lg border border-red-200 bg-white p-3 text-sm font-semibold text-red-600">{serverError}</p>}
+            <motion.button type="submit" disabled={submitting} className="primary-button mt-6 w-full gap-2 disabled:cursor-not-allowed disabled:opacity-60 md:w-auto" whileTap={buttonTap}>
+              {submitting ? 'Sending...' : 'Send Message'} <FaPaperPlane />
             </motion.button>
           </motion.form>
         </div>

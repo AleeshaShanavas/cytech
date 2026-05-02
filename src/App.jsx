@@ -4,11 +4,15 @@ import { motion, useInView } from 'framer-motion'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
+import QuestionSection from './components/QuestionSection.jsx'
 import Services from './components/Services.jsx'
 import ServiceDetails from './components/ServiceDetails.jsx'
 import Products from './components/Products.jsx'
 import ProductDetails from './components/ProductDetails.jsx'
+import LetsBuildSection from './components/LetsBuildSection.jsx'
 import Industries from './components/Industries.jsx'
+import Technologies from './components/Technologies.jsx'
+import TechStackPage from './components/TechStackPage.jsx'
 import Reviews from './components/Reviews.jsx'
 import Contact from './components/Contact.jsx'
 import Chatbot from './components/Chatbot.jsx'
@@ -24,13 +28,22 @@ function HomePage() {
         <About />
       </SectionReveal>
       <SectionReveal>
+        <QuestionSection />
+      </SectionReveal>
+      <SectionReveal>
         <Services />
       </SectionReveal>
       <SectionReveal>
         <Products />
       </SectionReveal>
       <SectionReveal>
+        <LetsBuildSection />
+      </SectionReveal>
+      <SectionReveal>
         <Industries />
+      </SectionReveal>
+      <SectionReveal>
+        <Technologies />
       </SectionReveal>
       <Reviews />
       <SectionReveal>
@@ -94,6 +107,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/technologies" element={<TechStackPage />} />
           <Route path="/services/:slug" element={<ServiceDetails />} />
           <Route path="/products/:slug" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
