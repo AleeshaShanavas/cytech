@@ -1,15 +1,23 @@
 import {
+  FaAndroid,
+  FaCheckCircle,
   FaBullhorn,
   FaCloud,
   FaDatabase,
+  FaDocker,
+  FaMobileAlt,
+  FaJava,
   FaHospital,
   FaIndustry,
   FaLaptopCode,
+  FaNodeJs,
+  FaPython,
   FaRoute,
   FaStore,
   FaTruckMoving,
   FaUtensils,
 } from 'react-icons/fa'
+import { SiFlutter, SiGooglecloud, SiKubernetes, SiLaravel, SiMongodb, SiMysql, SiNestjs, SiNextdotjs, SiPostgresql, SiReact, SiRedis, SiTailwindcss, SiFirebase, SiExpress, SiDjango, SiAngular, SiVuedotjs, SiRedux, SiSpringboot, SiGraphql } from 'react-icons/si'
 
 export const services = [
   {
@@ -139,5 +147,90 @@ export const reviews = [
     role: 'Supply Chain Head, ShipFast',
     initials: 'LT',
     quote: 'Real-time logistics tracking and clean dashboards helped our team reduce follow-up delays.',
+  },
+]
+
+export const technologies = [
+  { name: 'React', icon: SiReact },
+  { name: 'Next.js', icon: SiNextdotjs },
+  { name: 'Node.js', icon: FaNodeJs },
+  { name: 'NestJS', icon: SiNestjs },
+  { name: 'Python', icon: FaPython },
+  { name: 'Java', icon: FaJava },
+  { name: 'Laravel', icon: SiLaravel },
+  { name: 'Flutter', icon: SiFlutter },
+  { name: 'React Native', icon: SiReact },
+  { name: 'Android', icon: FaAndroid },
+  { name: 'iOS', icon: FaMobileAlt },
+  { name: 'AWS', icon: FaCloud },
+  { name: 'Docker', icon: FaDocker },
+  { name: 'Kubernetes', icon: SiKubernetes },
+  { name: 'PostgreSQL', icon: SiPostgresql },
+  { name: 'Google Cloud', icon: SiGooglecloud },
+]
+
+export const techStackCategories = [
+  {
+    title: 'Frontend',
+    items: [
+      { name: 'React', icon: SiReact },
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'Vue.js', icon: SiVuedotjs },
+      { name: 'Angular', icon: SiAngular },
+      { name: 'Tailwind CSS', icon: SiTailwindcss },
+      { name: 'Redux', icon: SiRedux },
+    ],
+  },
+  {
+    title: 'Backend',
+    items: [
+      { name: 'Node.js', icon: FaNodeJs },
+      { name: 'NestJS', icon: SiNestjs },
+      { name: 'Express.js', icon: SiExpress },
+      { name: 'Python', icon: FaPython },
+      { name: 'Django', icon: SiDjango },
+      { name: 'Java', icon: FaJava },
+      { name: 'Spring Boot', icon: SiSpringboot },
+      { name: 'Laravel', icon: SiLaravel },
+    ],
+  },
+  {
+    title: 'Mobile',
+    items: [
+      { name: 'Flutter', icon: SiFlutter },
+      { name: 'React Native', icon: SiReact },
+      { name: 'Android (Kotlin)', icon: FaAndroid },
+      { name: 'iOS (Swift)', icon: FaMobileAlt },
+    ],
+  },
+  {
+    title: 'Database',
+    items: [
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'MySQL', icon: SiMysql },
+      { name: 'Redis', icon: SiRedis },
+      { name: 'Firebase', icon: SiFirebase },
+    ],
+  },
+  {
+    title: 'DevOps & Cloud',
+    items: [
+      { name: 'AWS', icon: FaCloud },
+      { name: 'Docker', icon: FaDocker },
+      { name: 'Kubernetes', icon: SiKubernetes },
+      { name: 'Google Cloud', icon: SiGooglecloud },
+      { name: 'Azure', icon: FaCloud },
+      { name: 'CI/CD', icon: FaCheckCircle },
+    ],
+  },
+  {
+    title: 'Others',
+    items: [
+      { name: 'GraphQL', icon: SiGraphql },
+      { name: 'WebSockets', icon: FaCloud },
+      { name: 'Microservices', icon: FaCloud },
+      { name: 'Serverless', icon: FaCloud },
+    ],
   },
 ]

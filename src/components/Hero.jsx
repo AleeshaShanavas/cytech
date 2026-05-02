@@ -4,11 +4,6 @@ import { buttonTap, fadeLeft, fadeRight, smoothTransition, viewport } from '../a
 
 export default function Hero() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  const stats = [
-    { value: '500+', label: 'Clients' },
-    { value: '10+', label: 'Years' },
-    { value: '50+', label: 'Solutions' },
-  ]
 
   return (
     <section id="home" className="hero-grid relative overflow-hidden bg-gradient-to-br from-white via-white to-blue-50/70">
@@ -47,14 +42,6 @@ export default function Hero() {
             </motion.button>
           </div>
 
-          <div className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-gray-200 pt-6">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p className="text-3xl font-bold text-[#4FB3D1]">{stat.value}</p>
-                <p className="mt-1 text-sm text-gray-600">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </motion.div>
 
         <motion.div
