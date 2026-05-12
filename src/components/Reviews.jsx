@@ -7,7 +7,7 @@ const companyNames = ['Gulf Trade', 'HealthCare Plus', 'FoodChain', 'ShipFast', 
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="border-t border-white/10 bg-[#071225]">
+    <section id="reviews" className="border-t border-gray-100 bg-white">
       <div className="section-shell max-w-none px-0 sm:px-0 lg:px-0">
         <motion.div
           className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8"
@@ -17,9 +17,9 @@ export default function Reviews() {
           variants={fadeUp}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm font-semibold uppercase tracking-wide text-[#7eb7ff]">Client Reviews</p>
-          <h2 className="mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl">What Our Clients Say</h2>
-          <p className="mx-auto mt-4 max-w-2xl leading-7 text-white/75">
+          <p className="text-sm font-semibold uppercase tracking-wide text-kienexBlue">Client Reviews</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-kienexBlue sm:text-4xl">What Our Clients Say</h2>
+          <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
             Teams trust Kienex for dependable software delivery, clear communication, and long-term technology support.
           </p>
         </motion.div>
@@ -30,13 +30,13 @@ export default function Reviews() {
         </div>
 
         <div className="mx-auto mt-14 max-w-6xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-wide text-white/50">
+          <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
             Trusted by growing companies across Saudi Arabia
           </p>
           <div className="mt-6 overflow-hidden">
             <div className="review-track-left flex w-max items-center gap-10">
               {[...companyNames, ...companyNames].map((name, index) => (
-                <span key={`${name}-${index}`} className="shrink-0 text-base font-bold text-white/25 sm:text-lg">
+                <span key={`${name}-${index}`} className="shrink-0 text-base font-bold text-gray-300 sm:text-lg">
                   {name}
                 </span>
               ))}

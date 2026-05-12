@@ -6,7 +6,7 @@ export default function Hero() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section id="home" className="hero-grid relative overflow-hidden bg-gradient-to-br from-white via-white to-blue-50/70">
+    <section id="home" className="hero-grid relative overflow-hidden bg-[#f1f5f9]">
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 md:py-16 lg:min-h-[620px] lg:grid-cols-2 lg:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={fadeLeft} transition={smoothTransition}>
           <span className="inline-flex items-center rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-bold text-kienexBlue">
@@ -108,17 +108,17 @@ export default function Hero() {
         >
           <div className="rounded-3xl bg-[#4FB3D1]/10 p-5 shadow-sm">
             <div className="rounded-2xl bg-white p-5 shadow-xl">
-            <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-red-400" />
-              <span className="h-3 w-3 rounded-full bg-yellow-400" />
-              <span className="h-3 w-3 rounded-full bg-green-400" />
+              <div className="flex items-center gap-2">
+                <span className="h-3 w-3 rounded-full bg-red-400" />
+                <span className="h-3 w-3 rounded-full bg-yellow-400" />
+                <span className="h-3 w-3 rounded-full bg-green-400" />
+              </div>
+              <div className="mt-5 space-y-3">
+                <div className="h-3 w-3/4 rounded-lg bg-gray-100" />
+                <div className="h-3 w-1/2 rounded-lg bg-gray-200" />
+                <div className="scan-bar h-16 rounded-lg bg-[#4FB3D1]/10" />
+              </div>
             </div>
-            <div className="mt-5 space-y-3">
-              <div className="h-3 w-3/4 rounded-lg bg-gray-100" />
-              <div className="h-3 w-1/2 rounded-lg bg-gray-200" />
-              <div className="scan-bar h-16 rounded-lg bg-[#4FB3D1]/10" />
-            </div>
-          </div>
           </div>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl bg-[#071225] p-5 text-white shadow-xl">

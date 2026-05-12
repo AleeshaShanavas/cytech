@@ -47,7 +47,7 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={aboutRef} className="border-t border-white/10 bg-gradient-to-br from-[#3f63e8] to-[#3153d1]">
+    <section id="about" ref={aboutRef} className="border-t border-gray-100 bg-gray-50">
       <div className="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
         <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={fadeLeft} transition={smoothTransition}>
           <div className="relative rounded-2xl bg-[#4FB3D1]/10 p-6">
@@ -71,19 +71,19 @@ export default function About() {
           variants={fadeRight}
           transition={{ ...smoothTransition, delay: 0.1 }}
         >
-          <span className="inline-block rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white">
+          <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">
             About Us
           </span>
-          <h2 className="text-3xl font-bold leading-tight text-white md:text-4xl">
+          <h2 className="text-3xl font-bold leading-tight text-kienexBlue md:text-4xl">
             Transforming Businesses Through Technology
           </h2>
-          <p className="text-white/85">
+          <p className="text-gray-600">
             At Kienex, we are committed to delivering world-class software solutions that drive business growth and operational efficiency. We help organizations transform their digital landscape with reliable technology.
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
             {points.map((point) => (
-              <div key={point} className="flex items-center gap-3 text-sm text-white/85">
-                <FaCheckCircle className="shrink-0 text-white" />
+              <div key={point} className="flex items-center gap-3 text-sm text-gray-700">
+                <FaCheckCircle className="shrink-0 text-kienexBlue" />
                 <span>{point}</span>
               </div>
             ))}
@@ -92,9 +92,9 @@ export default function About() {
             {highlights.map((item) => {
               const Icon = item.icon
               return (
-                <div key={item.title} className="rounded-xl bg-white/10 p-4 text-center">
-                  <Icon className="mx-auto text-2xl text-white" />
-                  <p className="mt-3 text-sm font-bold text-white">{item.title}</p>
+                <div key={item.title} className="rounded-xl bg-white p-4 text-center shadow-sm border border-gray-100">
+                  <Icon className="mx-auto text-2xl text-kienexBlue" />
+                  <p className="mt-3 text-sm font-bold text-gray-900">{item.title}</p>
                 </div>
               )
             })}
@@ -102,8 +102,8 @@ export default function About() {
         </motion.div>
       </div>
 
-      <div className="count-grid relative overflow-hidden bg-gradient-to-br from-[#3f63e8] to-[#3153d1]">
-        <div className="about-ring pointer-events-none absolute right-12 top-10 h-24 w-24 rounded-full border-2 border-dashed border-white/20" />
+      <div className="count-grid relative overflow-hidden bg-gray-100 border-t border-gray-200">
+        <div className="about-ring pointer-events-none absolute right-12 top-10 h-24 w-24 rounded-full border-2 border-dashed border-kienexBlue/20" />
         <div className="about-ring pointer-events-none absolute left-10 bottom-10 h-16 w-16 rounded-full border-2 border-dashed border-[#4FB3D1]/40" style={{ animationDirection: 'reverse', animationDuration: '9s' }} />
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {countStats.map((stat, index) => {
@@ -111,19 +111,19 @@ export default function About() {
             return (
               <motion.div
                 key={stat.label}
-                className="text-center text-white"
+                className="text-center text-gray-900"
                 initial={{ opacity: 0, y: 26 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={viewport}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 text-white">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-sm border border-gray-200 text-kienexBlue">
                   <Icon className="text-2xl" />
                 </div>
-                <p className="mt-5 text-4xl font-bold">
+                <p className="mt-5 text-4xl font-bold text-kienexBlue">
                   <CountUp value={stat.value} suffix={stat.suffix} run={countRun} />
                 </p>
-                <p className="mt-2 text-sm font-semibold text-white/85">{stat.label}</p>
+                <p className="mt-2 text-sm font-semibold text-gray-600">{stat.label}</p>
               </motion.div>
             )
           })}

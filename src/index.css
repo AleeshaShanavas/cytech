@@ -42,6 +42,7 @@ textarea {
 }
 
 @keyframes signalBlink {
+
   0%,
   42%,
   100% {
@@ -57,6 +58,7 @@ textarea {
 }
 
 @keyframes panelGlow {
+
   0%,
   100% {
     opacity: 0.35;
@@ -105,6 +107,7 @@ textarea {
 }
 
 @keyframes cursorBlink {
+
   0%,
   45% {
     opacity: 1;
@@ -117,6 +120,7 @@ textarea {
 }
 
 @keyframes floatSoft {
+
   0%,
   100% {
     transform: translateY(0);
@@ -128,6 +132,7 @@ textarea {
 }
 
 @keyframes floatSide {
+
   0%,
   100% {
     transform: translateX(0) rotate(45deg);
@@ -139,6 +144,7 @@ textarea {
 }
 
 @keyframes scrollDot {
+
   0%,
   100% {
     transform: translateY(0);
@@ -242,8 +248,8 @@ textarea {
 
   .hero-grid {
     background-image:
-      linear-gradient(rgba(11, 61, 145, 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(11, 61, 145, 0.055) 1px, transparent 1px);
+      linear-gradient(rgba(11, 61, 145, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 61, 145, 0.05) 1px, transparent 1px);
     background-size: 34px 34px;
   }
 
@@ -265,7 +271,7 @@ textarea {
 
   .count-grid {
     background-image:
-      radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+      radial-gradient(rgba(11, 61, 145, 0.07) 1px, transparent 1px);
     background-size: 28px 28px;
   }
 

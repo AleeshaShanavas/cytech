@@ -5,7 +5,7 @@ import { buttonTap, cardHover, fadeUp, staggerContainer, viewport } from '../ani
 
 export default function Services() {
   return (
-    <section id="services" className="border-t border-gray-100 bg-white">
+    <section id="services" className="border-t border-gray-100 bg-gray-50">
       <div className="section-shell">
         <motion.div className="mx-auto max-w-3xl text-center" initial="hidden" whileInView="visible" viewport={viewport} variants={fadeUp} transition={{ duration: 0.6 }}>
           <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">Services & Solutions</span>
@@ -34,7 +34,7 @@ export default function Services() {
                 <p className="mt-3 flex-1 text-sm leading-6 text-black">{service.short}</p>
                 <motion.div whileTap={buttonTap}>
                   <Link to={`/services/${service.slug}`} className="secondary-button mt-6 w-full">
-                  Learn More
+                    Learn More
                   </Link>
                 </motion.div>
               </motion.article>

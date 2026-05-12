@@ -84,7 +84,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t border-gray-100 bg-white">
+    <section id="contact" className="border-t border-gray-100 bg-gray-50">
       <div className="section-shell">
         <motion.div className="mx-auto mb-14 max-w-3xl text-center" initial="hidden" whileInView="visible" viewport={viewport} variants={fadeLeft} transition={smoothTransition}>
           <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">

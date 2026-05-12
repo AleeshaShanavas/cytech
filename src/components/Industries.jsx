@@ -4,7 +4,7 @@ import { cardHover, fadeUp, staggerContainer, viewport, zoomIn } from '../animat
 
 export default function Industries() {
   return (
-    <section id="industries" className="border-t border-gray-100 bg-gray-50">
+    <section id="industries" className="border-t border-gray-100 bg-white">
       <div className="section-shell">
         <motion.div className="mx-auto max-w-3xl text-center" initial="hidden" whileInView="visible" viewport={viewport} variants={fadeUp} transition={{ duration: 0.6 }}>
           <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">Industries We Serve</span>

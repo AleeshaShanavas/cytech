@@ -5,12 +5,12 @@ import { buttonTap, cardHover, fadeUp, staggerContainer, viewport, zoomIn } from
 
 export default function Products() {
   return (
-    <section id="products" className="border-t border-white/10 bg-gradient-to-br from-[#3f63e8] to-[#3153d1]">
+    <section id="products" className="border-t border-gray-100 bg-white">
       <div className="section-shell">
         <motion.div className="mx-auto max-w-3xl text-center" initial="hidden" whileInView="visible" viewport={viewport} variants={fadeUp} transition={{ duration: 0.6 }}>
-          <span className="inline-block rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white">Products</span>
-          <h2 className="mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl">ERP and accounting platforms configured for your team.</h2>
-          <p className="mt-4 text-white/85">Powerful business platforms implemented with clean workflows, reporting, and integration support.</p>
+          <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">Products</span>
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-kienexBlue sm:text-4xl">ERP and accounting platforms configured for your team.</h2>
+          <p className="mt-4 text-gray-600">Powerful business platforms implemented with clean workflows, reporting, and integration support.</p>
         </motion.div>
 
         <motion.div

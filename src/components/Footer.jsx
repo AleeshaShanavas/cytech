@@ -24,7 +24,7 @@ const footerHref = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#071225] text-white">
+    <footer className="bg-[#040d1a] text-white">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.8fr] lg:px-8">
         <div>
           <Link to="/" className="inline-flex items-center gap-3">
