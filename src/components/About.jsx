@@ -47,7 +47,7 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={aboutRef} className="border-t border-gray-100 bg-gray-50">
+    <section id="about" ref={aboutRef} className="border-t border-blue-50 bg-[#E6F0FF]">
       <div className="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
         <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={fadeLeft} transition={smoothTransition}>
           <div className="relative rounded-2xl bg-[#4FB3D1]/10 p-6">
@@ -92,7 +92,7 @@ export default function About() {
             {highlights.map((item) => {
               const Icon = item.icon
               return (
-                <div key={item.title} className="rounded-xl bg-white p-4 text-center shadow-sm border border-gray-100">
+                <div key={item.title} className="rounded-xl bg-white p-4 text-center shadow-sm border border-blue-50">
                   <Icon className="mx-auto text-2xl text-kienexBlue" />
                   <p className="mt-3 text-sm font-bold text-gray-900">{item.title}</p>
                 </div>
@@ -102,7 +102,7 @@ export default function About() {
         </motion.div>
       </div>
 
-      <div className="count-grid relative overflow-hidden bg-gray-100 border-t border-gray-200">
+      <div className="count-grid relative overflow-hidden bg-white border-t border-blue-50">
         <div className="about-ring pointer-events-none absolute right-12 top-10 h-24 w-24 rounded-full border-2 border-dashed border-kienexBlue/20" />
         <div className="about-ring pointer-events-none absolute left-10 bottom-10 h-16 w-16 rounded-full border-2 border-dashed border-[#4FB3D1]/40" style={{ animationDirection: 'reverse', animationDuration: '9s' }} />
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
@@ -117,7 +117,7 @@ export default function About() {
                 viewport={viewport}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-sm border border-gray-200 text-kienexBlue">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 shadow-sm border border-blue-100 text-kienexBlue">
                   <Icon className="text-2xl" />
                 </div>
                 <p className="mt-5 text-4xl font-bold text-kienexBlue">

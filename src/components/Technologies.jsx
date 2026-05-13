@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer, viewport, zoomIn } from '../animation.js'
 
 export default function Technologies() {
   return (
-    <section className="border-t border-gray-100 bg-gray-50">
+    <section className="border-t border-gray-100 bg-white">
       <div className="section-shell">
         <motion.div
           className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-end md:justify-between"
@@ -46,7 +46,7 @@ export default function Technologies() {
             return (
               <motion.div
                 key={tech.name}
-                className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-sm transition hover:border-kienexBlue/30 hover:shadow-md"
+                className="group flex items-center gap-4 rounded-xl border border-blue-100 bg-white px-5 py-4 shadow-sm transition hover:border-kienexBlue/30 hover:shadow-md"
                 variants={zoomIn}
                 whileHover={{ y: -2 }}
               >

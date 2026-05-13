@@ -24,7 +24,7 @@ const footerHref = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#040d1a] text-white">
+    <footer className="bg-[#0A2463] text-white">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.8fr] lg:px-8">
         <div>
           <Link to="/" className="inline-flex items-center gap-3">
@@ -38,7 +38,7 @@ export default function Footer() {
           </p>
           <div className="mt-6 space-y-3 text-sm text-gray-300">
             <FooterContact icon={FaEnvelope} text="info@kienex.com" href="mailto:info@kienex.com" />
-            <FooterContact icon={FaPhoneAlt} text="+966543064677" href="tel:+966543064677" />
+            <FooterContact icon={FaPhoneAlt} text="+966 54 3064677" href="tel:+966543064677" />
             <FooterContact icon={FaMapMarkerAlt} text="Al Khobar, Saudi Arabia" />
           </div>
         </div>

@@ -6,7 +6,7 @@ export default function Hero() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section id="home" className="hero-grid relative overflow-hidden bg-[#f1f5f9]">
+    <section id="home" className="hero-grid relative overflow-hidden bg-white">
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 md:py-16 lg:min-h-[620px] lg:grid-cols-2 lg:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={fadeLeft} transition={smoothTransition}>
           <span className="inline-flex items-center rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-bold text-kienexBlue">

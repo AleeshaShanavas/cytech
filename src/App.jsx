@@ -17,6 +17,7 @@ import Reviews from './components/Reviews.jsx'
 import Contact from './components/Contact.jsx'
 import Chatbot from './components/Chatbot.jsx'
 import Footer from './components/Footer.jsx'
+import LandingModal from './components/LandingModal.jsx'
 
 function HomePage() {
   return (
@@ -115,6 +116,7 @@ export default function App() {
       </main>
       <Footer />
       <Chatbot />
+      <LandingModal />
     </div>
   )
 }

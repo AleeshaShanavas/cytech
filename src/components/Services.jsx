@@ -5,7 +5,7 @@ import { buttonTap, cardHover, fadeUp, staggerContainer, viewport } from '../ani
 
 export default function Services() {
   return (
-    <section id="services" className="border-t border-gray-100 bg-gray-50">
+    <section id="services" className="border-t border-gray-100 bg-white">
       <div className="section-shell">
         <motion.div className="mx-auto max-w-3xl text-center" initial="hidden" whileInView="visible" viewport={viewport} variants={fadeUp} transition={{ duration: 0.6 }}>
           <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">Services & Solutions</span>
@@ -23,7 +23,7 @@ export default function Services() {
           {services.map((service, index) => {
             const Icon = service.icon
             return (
-              <motion.article key={service.slug} className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-xl" variants={fadeUp} whileHover={cardHover}>
+              <motion.article key={service.slug} className="group flex h-full flex-col rounded-2xl border border-blue-100 bg-white p-6 shadow-sm transition hover:shadow-xl" variants={fadeUp} whileHover={cardHover}>
                 <div className="flex items-start justify-between gap-3">
                   <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-kienexBlue/10 text-kienexBlue transition group-hover:bg-kienexBlue group-hover:text-white">
                     <Icon className="text-2xl" />

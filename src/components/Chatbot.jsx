@@ -21,7 +21,7 @@ const getAssistantReply = (message) => {
   }
 
   if (text.includes('contact') || text.includes('phone') || text.includes('email') || text.includes('whatsapp')) {
-    return 'You can call or WhatsApp Kienex at +966543064677, email info@kienex.com, or visit us in Al Khobar, Saudi Arabia.'
+    return 'You can call Kienex at +966 54 3064677 or WhatsApp at +966 54 609 0776, email info@kienex.com, or visit us in Al Khobar, Saudi Arabia.'
   }
 
   if (text.includes('industry') || text.includes('trading') || text.includes('logistics') || text.includes('healthcare') || text.includes('restaurant')) {
@@ -60,7 +60,7 @@ export default function Chatbot() {
     <>
       <div className="fixed bottom-24 right-5 z-40 grid gap-3">
         <a
-          href="https://wa.me/966543064677"
+          href="https://api.whatsapp.com/send/?phone=966546090776"
           target="_blank"
           rel="noreferrer"
           aria-label="Connect on WhatsApp"
@@ -156,7 +156,7 @@ export default function Chatbot() {
                   </motion.button>
                 </form>
                 <div className="grid grid-cols-2 gap-2">
-                  <a href="https://wa.me/966543064677" target="_blank" rel="noreferrer" className="primary-button w-full">
+                  <a href="https://api.whatsapp.com/send/?phone=966546090776" target="_blank" rel="noreferrer" className="primary-button w-full">
                     <FaWhatsapp className="mr-2" /> WhatsApp
                   </a>
                   <a href="mailto:info@kienex.com" className="secondary-button w-full">

@@ -34,7 +34,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#040d1a]/95 shadow-sm backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0A2463]/95 shadow-sm backdrop-blur-sm">
       <nav className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-kienexBlue text-xl font-bold text-white">
@@ -61,7 +61,7 @@ export default function Navbar() {
             <button type="button" className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-white/10">
               Social
             </button>
-            <div className="pointer-events-none absolute right-0 top-11 w-48 translate-y-2 rounded-lg border border-white/10 bg-[#040d1a] p-3 opacity-0 shadow-soft transition group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="pointer-events-none absolute right-0 top-11 w-48 translate-y-2 rounded-lg border border-white/10 bg-[#0A2463] p-3 opacity-0 shadow-soft transition group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
               <div className="-mt-3 mb-3 inline-flex rounded-b-lg bg-kienexBlue px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white">
                 Social
               </div>
@@ -99,7 +99,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/10 bg-[#040d1a] px-4 pb-4 shadow-sm md:hidden">
+        <div className="border-t border-white/10 bg-[#0A2463] px-4 pb-4 shadow-sm md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-2 pt-3">
             {links.map((link) => (
               <motion.button

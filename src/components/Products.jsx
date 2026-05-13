@@ -5,7 +5,7 @@ import { buttonTap, cardHover, fadeUp, staggerContainer, viewport, zoomIn } from
 
 export default function Products() {
   return (
-    <section id="products" className="border-t border-gray-100 bg-white">
+    <section id="products" className="border-t border-blue-50 bg-[#E6F0FF]">
       <div className="section-shell">
         <motion.div className="mx-auto max-w-3xl text-center" initial="hidden" whileInView="visible" viewport={viewport} variants={fadeUp} transition={{ duration: 0.6 }}>
           <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">Products</span>

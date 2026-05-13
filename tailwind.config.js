@@ -3,7 +3,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        kienexBlue: '#0B3D91',
+        kienexBlue: '#0A2463',
+        navyBg: '#0A2463',
+        lightBg: '#E6F0FF',
       },
       boxShadow: {
         soft: '0 12px 30px rgba(11, 61, 145, 0.10)',

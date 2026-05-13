@@ -5,7 +5,7 @@ export default function LetsBuildSection() {
   const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section className="border-t border-gray-100 bg-gray-50">
+    <section className="border-t border-gray-100 bg-white">
       <div className="section-shell">
         <motion.div
           className="mx-auto max-w-4xl text-center"
@@ -22,7 +22,7 @@ export default function LetsBuildSection() {
             Ready to start? Share your requirements or reach out to Kienex for a tailored software discussion.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="tel:+966543064677" className="inline-flex min-h-12 items-center justify-center rounded-full border border-gray-200 bg-white px-8 py-3 font-semibold text-kienexBlue shadow-sm transition hover:bg-gray-50">
+            <a href="tel:+966543064677" className="inline-flex min-h-12 items-center justify-center rounded-full border border-blue-100 bg-white px-8 py-3 font-semibold text-kienexBlue shadow-sm transition hover:bg-gray-50">
               Call Now
             </a>
             <button type="button" onClick={scrollToContact} className="inline-flex min-h-12 items-center justify-center rounded-full bg-kienexBlue px-8 py-3 font-semibold text-white shadow-soft">

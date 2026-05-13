@@ -4,18 +4,23 @@ import { fadeUp, staggerContainer, viewport, zoomIn } from '../animation.js'
 
 export default function TechStackPage() {
   return (
-    <section className="min-h-screen bg-white">
-      <div className="section-shell">
+    <section className="hero-grid relative min-h-screen overflow-hidden bg-gradient-to-br from-white via-white to-blue-50/70">
+      <div className="float-soft absolute right-12 top-28 h-24 w-24 rounded-2xl bg-[#4FB3D1]/20" />
+      <div className="float-soft absolute bottom-24 left-8 h-16 w-16 rounded-full bg-kienexBlue/15" style={{ animationDelay: '0.8s' }} />
+      <div className="float-side absolute right-24 bottom-36 h-12 w-12 rotate-45 rounded-lg bg-kienexBlue/20" />
+
+      <div className="section-shell relative z-10">
         <motion.div
-          className="mx-auto max-w-4xl text-center"
+          className="mx-auto max-w-4xl text-center glow-panel rounded-lg border border-gray-200 bg-white/90 p-8 shadow-soft backdrop-blur-sm"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           variants={fadeUp}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-bold leading-tight text-kienexBlue sm:text-5xl">Our Tech Stack</h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
+          <p className="section-kicker">Technologies</p>
+          <h1 className="mt-3 text-4xl font-bold leading-tight text-kienexBlue sm:text-5xl">Our Tech Stack</h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-black">
             We leverage the latest and most reliable technologies to build scalable, secure, and high-performance solutions.
           </p>
         </motion.div>
@@ -28,17 +33,17 @@ export default function TechStackPage() {
           variants={staggerContainer}
         >
           {techStackCategories.map((category) => (
-            <motion.div key={category.title} className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm" variants={zoomIn}>
+            <motion.div key={category.title} className="card glow-panel bg-white/90 backdrop-blur-sm" variants={zoomIn}>
               <h2 className="text-2xl font-bold text-kienexBlue">{category.title}</h2>
               <ul className="mt-6 space-y-4">
                 {category.items.map((item) => {
                   const Icon = item.icon
                   return (
-                    <li key={item.name} className="flex items-center gap-3 text-gray-700">
-                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full text-kienexBlue">
+                    <li key={item.name} className="flex items-center gap-3 text-black">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full text-kienexBlue bg-blue-50/50">
                         <Icon />
                       </span>
-                      <span>{item.name}</span>
+                      <span className="font-medium">{item.name}</span>
                     </li>
                   )
                 })}

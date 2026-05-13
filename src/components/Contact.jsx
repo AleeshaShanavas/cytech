@@ -7,7 +7,7 @@ const initialForm = { name: '', email: '', phone: '', company: '', service: '', 
 
 const contactItems = [
   { title: 'Email Us', icon: FaEnvelope, details: ['info@kienex.com', 'support@kienex.com'], href: 'mailto:info@kienex.com' },
-  { title: 'Call Us', icon: FaPhoneAlt, details: ['+966543064677', 'Available for business inquiries'], href: 'tel:+966543064677' },
+  { title: 'Call Us', icon: FaPhoneAlt, details: ['+966 54 3064677', 'Available for business inquiries'], href: 'tel:+966543064677' },
   { title: 'Visit Us', icon: FaMapMarkerAlt, details: ['Al Khobar, Saudi Arabia', 'Eastern Province'] },
   { title: 'Working Hours', icon: FaClock, details: ['Mon - Fri: 9:00 AM - 6:00 PM', 'Sat: 10:00 AM - 2:00 PM'] },
 ]
@@ -84,7 +84,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t border-gray-100 bg-gray-50">
+    <section id="contact" className="border-t border-gray-100 bg-white">
       <div className="section-shell">
         <motion.div className="mx-auto mb-14 max-w-3xl text-center" initial="hidden" whileInView="visible" viewport={viewport} variants={fadeLeft} transition={smoothTransition}>
           <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">
@@ -104,7 +104,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.form
-            className="rounded-2xl bg-gray-50 p-6 md:p-8 lg:col-span-2"
+            className="rounded-2xl border border-blue-50 bg-white p-6 md:p-8 lg:col-span-2 shadow-sm"
             onSubmit={submit}
             initial="hidden"
             whileInView="visible"
@@ -174,7 +174,7 @@ function Field({ label, error, ...props }) {
 function ContactCard({ item }) {
   const Icon = item.icon
   const content = (
-    <div className="flex items-start gap-4 rounded-xl bg-gray-50 p-4 transition hover:bg-kienexBlue/5">
+    <div className="flex items-start gap-4 rounded-xl bg-white border border-blue-50 p-4 transition hover:bg-kienexBlue/5 shadow-sm">
       <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-kienexBlue/10 text-kienexBlue">
         <Icon />
       </span>
