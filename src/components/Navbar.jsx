@@ -9,6 +9,7 @@ const links = [
   { label: 'Services', target: 'services' },
   { label: 'Products', target: 'products' },
   { label: 'Industries', target: 'industries' },
+  { label: 'Technologies', target: 'technologies' },
   { label: 'Contact', target: 'contact' },
 ]
 
@@ -30,11 +31,15 @@ export default function Navbar() {
       navigate(`/#${target}`)
       return
     }
+    if (target === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
     document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0A2463]/95 shadow-sm backdrop-blur-sm">
+    <header className="sticky top-0 z-[999] border-b border-white/10 bg-[#0A2463]/95 shadow-sm backdrop-blur-sm">
       <nav className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-kienexBlue text-xl font-bold text-white">

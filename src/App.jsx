@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Navbar from './components/Navbar.jsx'
@@ -21,52 +21,208 @@ import LandingModal from './components/LandingModal.jsx'
 
 function HomePage() {
   return (
-    <>
-      <SectionReveal>
+    <div className="relative">
+      <SectionReveal id="home" bgColor="bg-white z-0" animType="ring">
         <Hero />
       </SectionReveal>
-      <SectionReveal>
+      <SectionReveal id="about" bgColor="bg-[#E6F0FF] z-10" animType="cube">
         <About />
       </SectionReveal>
-      <SectionReveal>
+      <SectionReveal bgColor="bg-[#E6F0FF] z-20" animType="orb">
         <QuestionSection />
       </SectionReveal>
-      <SectionReveal>
+      <SectionReveal id="services" bgColor="bg-white z-30" animType="pyramid">
         <Services />
       </SectionReveal>
-      <SectionReveal>
+      <SectionReveal id="products" bgColor="bg-[#E6F0FF] z-40" animType="particles">
         <Products />
       </SectionReveal>
-      <SectionReveal>
+      <SectionReveal bgColor="bg-white z-50" animType="helix">
         <LetsBuildSection />
       </SectionReveal>
-      <SectionReveal>
+      <SectionReveal id="industries" bgColor="bg-[#E6F0FF] z-[60]" animType="grid">
         <Industries />
       </SectionReveal>
-      <SectionReveal>
+      <SectionReveal id="technologies" bgColor="bg-white z-[70]" animType="cylinder">
         <Technologies />
       </SectionReveal>
-      <Reviews />
-      <SectionReveal>
+      <SectionReveal id="reviews" bgColor="bg-[#E6F0FF] z-[80]" animType="wave">
+        <Reviews />
+      </SectionReveal>
+      <SectionReveal id="contact" bgColor="bg-white z-[90]" animType="torus">
         <Contact />
       </SectionReveal>
-    </>
+    </div>
   )
 }
 
-function SectionReveal({ children }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.18, once: false })
+function FloatingTech3D({ type }) {
+  const renderAnimation = () => {
+    switch (type) {
+      case 'cube':
+        return (
+          <motion.div
+            className="absolute -top-1/2 left-0 h-[200vh] w-[100vw] flex items-center justify-center opacity-30"
+            style={{ transformStyle: 'preserve-3d', perspective: '1200px' }}
+          >
+            <motion.div
+              className="h-[80vw] w-[80vw] sm:h-[60vw] sm:w-[60vw] rounded-3xl border border-kienexBlue/20 bg-gradient-to-br from-[#4FB3D1]/5 to-transparent backdrop-blur-[2px]"
+              animate={{ rotateX: [0, 360], rotateY: [0, 360], scale: [1, 1.2, 1] }}
+              transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.div
+              className="absolute h-[100vw] w-[100vw] sm:h-[80vw] sm:w-[80vw] rounded-full border border-[#4FB3D1]/10"
+              animate={{ rotateX: [360, 0], rotateY: [0, 360], rotateZ: [0, 360] }}
+              transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+            />
+          </motion.div>
+        )
+      case 'orb':
+        return (
+          <div className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-40 mix-blend-multiply">
+            <motion.div
+              className="h-[150vw] w-[150vw] sm:h-[100vw] sm:w-[100vw] rounded-full bg-gradient-to-tr from-[#4FB3D1]/20 via-transparent to-kienexBlue/20 blur-[100px]"
+              animate={{ scale: [1, 1.3, 1], rotate: [0, 180, 360] }}
+              transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </div>
+        )
+      case 'pyramid':
+        return (
+          <div className="absolute inset-0 flex items-center justify-center opacity-20">
+            <motion.div
+              className="h-[150vh] w-[150vw] bg-[linear-gradient(45deg,transparent_49%,#4FB3D1_49%,#4FB3D1_51%,transparent_51%),linear-gradient(-45deg,transparent_49%,#4FB3D1_49%,#4FB3D1_51%,transparent_51%)] bg-[size:100px_100px]"
+              style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
+              animate={{ rotateZ: [0, 360], scale: [1, 1.5, 1] }}
+              transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+            />
+          </div>
+        )
+      case 'particles':
+        return (
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(12)].map((_, i) => (
+              <motion.div
+                key={`p-${i}`}
+                className="absolute h-[20vh] w-[20vw] rounded-full bg-gradient-to-t from-kienexBlue/10 to-transparent blur-3xl"
+                animate={{
+                  x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
+                  y: [window.innerHeight + 200, -200],
+                  scale: [1, 3, 1],
+                }}
+                transition={{ duration: 10 + i * 2, repeat: Infinity, ease: 'linear' }}
+              />
+            ))}
+          </div>
+        )
+      case 'helix':
+        return (
+          <div className="absolute inset-0 flex flex-col justify-around opacity-20">
+            {[...Array(10)].map((_, i) => (
+              <motion.div
+                key={`h-${i}`}
+                className="h-[10vh] w-[200vw] -ml-[50vw] bg-gradient-to-r from-transparent via-[#4FB3D1]/30 to-transparent"
+                style={{ transformStyle: 'preserve-3d' }}
+                animate={{ rotateX: [0, 360], scaleY: [1, 0.2, 1] }}
+                transition={{ duration: 8, repeat: Infinity, delay: i * 0.4, ease: 'easeInOut' }}
+              />
+            ))}
+          </div>
+        )
+      case 'grid':
+        return (
+          <motion.div
+            className="absolute -inset-[100%] bg-[linear-gradient(to_right,#0A246315_2px,transparent_2px),linear-gradient(to_bottom,#0A246315_2px,transparent_2px)] bg-[size:10vw_10vh]"
+            style={{ transformStyle: 'preserve-3d', perspective: '500px' }}
+            animate={{ rotateX: [60, 60], z: [0, -200, 0], y: [0, 100, 0] }}
+            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+          />
+        )
+      case 'cylinder':
+        return (
+          <div className="absolute inset-0 flex items-center justify-center opacity-30">
+            <motion.div
+              className="h-[200vh] w-[200vw] rounded-full border-[10vw] border-dashed border-[#4FB3D1]/20"
+              style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
+              animate={{ rotateX: [70, 70], rotateZ: [0, 360], scale: [1, 2, 1] }}
+              transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+            />
+          </div>
+        )
+      case 'wave':
+        return (
+          <div className="absolute inset-0 flex items-end justify-center overflow-hidden opacity-30">
+            <motion.div
+              className="h-[150vh] w-[300vw] rounded-[100%] bg-kienexBlue/10 blur-xl"
+              animate={{ x: ['-50%', '0%', '-50%'], y: ['20%', '0%', '20%'] }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </div>
+        )
+      case 'torus':
+        return (
+          <div className="absolute inset-0 flex items-center justify-center opacity-50">
+            <motion.div
+              className="h-[150vw] w-[150vw] sm:h-[100vw] sm:w-[100vw] rounded-full border-[8vw] border-kienexBlue/20 bg-gradient-to-tr from-[#4FB3D1]/10 to-transparent backdrop-blur-sm"
+              style={{ transformStyle: 'preserve-3d', perspective: '800px' }}
+              animate={{ rotateX: [0, 360], rotateY: [0, 360] }}
+              transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.div
+              className="absolute h-[80vw] w-[80vw] sm:h-[50vw] sm:w-[50vw] rounded-full border-[4vw] border-dashed border-[#4FB3D1]/40"
+              style={{ transformStyle: 'preserve-3d', perspective: '800px' }}
+              animate={{ rotateX: [360, 0], rotateY: [0, 360], rotateZ: [0, 360] }}
+              transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+            />
+          </div>
+        )
+      case 'ring':
+      default:
+        return (
+          <div className="absolute inset-0 flex items-center justify-center opacity-25 overflow-hidden">
+            <motion.div
+              className="absolute h-[150vw] w-[150vw] sm:h-[120vw] sm:w-[120vw] rounded-full border-[2px] border-[#4FB3D1]/20"
+              style={{ transformStyle: 'preserve-3d' }}
+              animate={{ rotateX: [0, 360], rotateY: [0, 360], rotateZ: [0, 360] }}
+              transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+            >
+              <div className="absolute inset-0 rounded-full border-[10vw] border-dashed border-[#4FB3D1]/10" />
+            </motion.div>
+            <motion.div
+              className="absolute h-[200vw] w-[200vw] sm:h-[150vw] sm:w-[150vw] rounded-full border-[1px] border-kienexBlue/10"
+              style={{ transformStyle: 'preserve-3d' }}
+              animate={{ rotateX: [360, 0], rotateY: [0, 360], rotateZ: [360, 0] }}
+              transition={{ duration: 75, repeat: Infinity, ease: 'linear' }}
+            />
+          </div>
+        )
+    }
+  }
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 42, filter: 'blur(8px)' }}
-      animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, y: 42, filter: 'blur(8px)' }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 0, perspective: '1000px' }}>
+      {renderAnimation()}
+    </div>
+  )
+}
+
+function SectionReveal({ children, bgColor = 'bg-white', id, animType = 'ring' }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.1, once: false })
+
+  return (
+    <div id={id} className={`sticky top-0 h-[100vh] w-full overflow-hidden shadow-[0_-15px_40px_rgba(0,0,0,0.1)] ${bgColor}`}>
+      <FloatingTech3D type={animType} />
+      <motion.div
+        ref={ref}
+        className="relative z-10 h-full w-full overflow-y-auto overflow-x-hidden flex flex-col justify-center"
+        initial={{ opacity: 0, y: 60, scale: 0.95 }}
+        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.95 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {children}
+      </motion.div>
+    </div>
   )
 }
 
@@ -88,17 +244,24 @@ function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      const element = document.querySelector(hash)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
+      setTimeout(() => {
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
       return
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // Delay slightly to ensure React has fully painted the new page before scrolling
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+    }, 50)
   }, [pathname, hash])
 
   return null
 }
+
+
 
 export default function App() {
   return (

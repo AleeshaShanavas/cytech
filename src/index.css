@@ -167,6 +167,11 @@ textarea {
   }
 }
 
+/* Force inner sections to be transparent so the 3D background animation is visible */
+.relative.z-10 > section {
+  background-color: transparent !important;
+}
+
 @layer components {
   .section-shell {
     @apply mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24;
@@ -277,5 +282,28 @@ textarea {
 
   .about-ring {
     animation: rotateRing 12s linear infinite;
+  }
+
+  .marquee-container {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .marquee-content {
+    display: flex;
+    min-width: 100%;
+    animation: marqueeScroll 60s linear infinite;
+  }
+
+  .marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  @keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 }

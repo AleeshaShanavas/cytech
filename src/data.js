@@ -148,6 +148,96 @@ export const reviews = [
     initials: 'LT',
     quote: 'Real-time logistics tracking and clean dashboards helped our team reduce follow-up delays.',
   },
+  {
+    name: 'Omar Tariq',
+    role: 'CEO, Prime Logistics',
+    initials: 'OT',
+    quote: 'Kienex completely overhauled our dispatch systems. The new cloud infrastructure is lightning fast.',
+  },
+  {
+    name: 'Aisha Rahman',
+    role: 'Marketing Director, RetailCo',
+    initials: 'AR',
+    quote: 'Their digital marketing team helped us increase our online conversion rate by 45% within three months.',
+  },
+  {
+    name: 'James Wilson',
+    role: 'IT Head, Medix Group',
+    initials: 'JW',
+    quote: 'The custom integration between our legacy software and the new cloud portal was handled flawlessly.',
+  },
+  {
+    name: 'Mohammed Al-Fayed',
+    role: 'Founder, TechStart',
+    initials: 'MA',
+    quote: 'We partnered with Kienex for a custom mobile app build. Professional, timely, and excellent code quality.',
+  },
+  {
+    name: 'Sarah Jenkins',
+    role: 'CFO, Industrial Build',
+    initials: 'SJ',
+    quote: 'Implementing Odoo through Kienex was the best decision. Financial reporting is now entirely automated.',
+  },
+  {
+    name: 'Hassan Ali',
+    role: 'Manager, QuickBite Chain',
+    initials: 'HA',
+    quote: 'The custom POS and inventory system they built for our restaurants saved us countless hours of manual work.',
+  },
+  {
+    name: 'Emma Stone',
+    role: 'VP of Operations, GlobalTrade',
+    initials: 'ES',
+    quote: "Kienex's ERPNext implementation gave us the multi-branch visibility we were desperately missing.",
+  },
+  {
+    name: 'Rahul Sharma',
+    role: 'Lead Engineer, DataCorp',
+    initials: 'RS',
+    quote: 'Their DevOps and Kubernetes expertise helped us scale our serverless architecture effortlessly.',
+  },
+  {
+    name: 'Zainab Mansoor',
+    role: 'HR Director, PeopleFirst',
+    initials: 'ZM',
+    quote: 'The HR and Payroll modules they configured for us have streamlined our entire onboarding process.',
+  },
+  {
+    name: 'Carlos Mendez',
+    role: 'Supply Chain Manager, FreshFoods',
+    initials: 'CM',
+    quote: 'Thanks to their custom tracking software, our distribution routes are optimized and fully transparent.',
+  },
+  {
+    name: 'Nadia Hussain',
+    role: 'Owner, Elegance Boutique',
+    initials: 'NH',
+    quote: 'They redesigned our e-commerce platform and integrated it perfectly with Tally for accounting.',
+  },
+  {
+    name: 'William Carter',
+    role: 'CTO, FutureFin',
+    initials: 'WC',
+    quote: 'Security and compliance were our top priorities. Kienex delivered a rock-solid cloud infrastructure.',
+  },
+  {
+    name: 'Youssef Ibrahim',
+    role: 'Director, BuildMax',
+    initials: 'YI',
+    quote: 'The transition from spreadsheets to a fully functional ERP was managed expertly by their team.',
+  },
+  {
+    name: 'Chloe Davies',
+    role: 'Head of Sales, AutoParts Ltd',
+    initials: 'CD',
+    quote: 'Our new CRM system is tailored exactly to our sales pipeline. It is incredibly user-friendly.',
+  },
+  {
+    name: 'Tariq Mahmood',
+    role: 'Operations Lead, ClearWater',
+    initials: 'TM',
+    quote: 'Excellent post-launch support and training. They ensured our team was fully confident using the new system.',
+  },
 ]
 
 export const technologies = [

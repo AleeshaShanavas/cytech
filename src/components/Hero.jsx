@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion'
 import { FaArrowRight, FaPlay } from 'react-icons/fa'
 import { buttonTap, fadeLeft, fadeRight, smoothTransition, viewport } from '../animation.js'
+import { techStackCategories } from '../data.js'
+
+const allTechItems = techStackCategories.flatMap(category => category.items)
+const marqueeItems = [...allTechItems, ...allTechItems]
 
 export default function Hero() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section id="home" className="hero-grid relative overflow-hidden bg-white">
+    <section id="home" className="hero-grid relative overflow-hidden bg-white pb-20">
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 md:py-16 lg:min-h-[620px] lg:grid-cols-2 lg:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={fadeLeft} transition={smoothTransition}>
           <span className="inline-flex items-center rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-bold text-kienexBlue">
@@ -41,7 +45,6 @@ export default function Hero() {
               Explore Services
             </motion.button>
           </div>
-
         </motion.div>
 
         <motion.div
@@ -136,7 +139,25 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-      <div className="absolute bottom-4 left-1/2 hidden h-8 w-4 -translate-x-1/2 rounded-full border-2 border-kienexBlue/40 md:block">
+
+      {/* Tech Stack Marquee Slider */}
+      <div className="absolute bottom-0 left-0 w-full border-t border-gray-100 bg-white/90 py-5 backdrop-blur-md">
+        <div className="marquee-container">
+          <div className="marquee-content flex items-center justify-around">
+            {marqueeItems.map((tech, index) => {
+              const Icon = tech.icon
+              return (
+                <div key={`${tech.name}-${index}`} className="mx-8 flex min-w-[120px] flex-col items-center gap-2 opacity-70 transition-opacity hover:opacity-100">
+                  <Icon className="text-3xl text-kienexBlue hover:text-[#4FB3D1] transition-colors" />
+                  <span className="text-sm font-semibold text-gray-600">{tech.name}</span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+      
+      <div className="absolute bottom-20 left-1/2 hidden h-8 w-4 -translate-x-1/2 rounded-full border-2 border-kienexBlue/40 md:block">
         <span className="scroll-dot mx-auto mt-1 block h-2 w-1 rounded-full bg-kienexBlue/60" />
       </div>
     </section>

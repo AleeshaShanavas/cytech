@@ -1,0 +1,23 @@
+# Kienex - Complete Software Solution Provider
+
+Kienex is a premier digital transformation, IT services, and digital marketing agency. We empower businesses with modern software and robust marketing solutions to optimize daily operations.
+
+## Core Services
+
+- **ERP Solutions & ERP Tools**: We specialize in implementing powerful ERP systems, including ERPNext, Odoo, AmPower Business Suite, and SPA's Lab and NDT Production Suite. These tools centralize finance, HR, inventory, and sales.
+- **Custom Software Development**: Purpose-built web and mobile applications tailored to your exact business operations and workflows.
+- **Digital Marketing Agency**: Comprehensive marketing services including SEO, Social Media Campaigns, Google Ads, and Lead Generation, specifically focused on maximizing visibility and ROI.
+- **Cloud Solutions**: Secure cloud hosting, server management, and deployment via AWS and Google Cloud.
+
+## Technical Stack & Expertise
+
+Our engineering team leverages the most reliable modern technologies to ensure scalable, high-performance delivery:
+- **Frontend**: React, Next.js, Vue.js, Angular, Tailwind CSS
+- **Backend & APIs**: Python, Django, Node.js, NestJS, Laravel, Java, Spring Boot
+- **Mobile Development**: Flutter, React Native, Android (Kotlin), iOS (Swift)
+- **Database & DevOps**: PostgreSQL, MySQL, MongoDB, AWS, Docker, Kubernetes, CI/CD
+
+## Contact Information
+
+Phone: +966 54 3064677
+Website: https://cytech-psi.vercel.app/
