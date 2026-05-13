@@ -211,11 +211,11 @@ function SectionReveal({ children, bgColor = 'bg-white', id, animType = 'ring' }
   const isInView = useInView(ref, { amount: 0.1, once: false })
 
   return (
-    <div id={id} className={`sticky top-0 h-[100vh] w-full overflow-hidden shadow-[0_-15px_40px_rgba(0,0,0,0.1)] ${bgColor}`}>
+    <div id={id} className={`relative md:sticky md:top-0 min-h-screen md:h-[100vh] w-full overflow-hidden shadow-[0_-15px_40px_rgba(0,0,0,0.1)] ${bgColor}`}>
       <FloatingTech3D type={animType} />
       <motion.div
         ref={ref}
-        className="relative z-10 h-full w-full overflow-y-auto overflow-x-hidden flex flex-col justify-center"
+        className="relative z-10 h-full min-h-screen md:min-h-0 w-full overflow-x-hidden md:overflow-y-auto flex flex-col justify-center pt-20 pb-10 md:pt-16"
         initial={{ opacity: 0, y: 60, scale: 0.95 }}
         animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.95 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
