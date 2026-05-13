@@ -48,95 +48,56 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="relative hidden min-h-[390px] lg:block"
+          className="relative mt-10 w-full lg:mt-0"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           variants={fadeRight}
           transition={{ ...smoothTransition, delay: 0.1 }}
         >
-          <div className="float-soft absolute right-8 top-0 h-20 w-20 rounded-xl bg-[#4FB3D1]/20" />
-          <div className="float-soft absolute bottom-24 left-0 h-14 w-14 rounded-full bg-kienexBlue/15" style={{ animationDelay: '0.8s' }} />
-          <div className="float-side absolute right-0 top-36 h-12 w-12 rotate-45 rounded-lg bg-kienexBlue/20" />
+          {/* Decorative background glow */}
+          <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-kienexBlue/20 to-[#4FB3D1]/20 blur-2xl" />
+          
+          <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-white/80 shadow-2xl backdrop-blur-md">
+            {/* Mac-style Window controls mockup */}
+            <div className="flex items-center gap-2 border-b border-gray-100 bg-gray-50/80 px-4 py-3 backdrop-blur-md">
+              <span className="h-3 w-3 rounded-full bg-red-400" />
+              <span className="h-3 w-3 rounded-full bg-yellow-400" />
+              <span className="h-3 w-3 rounded-full bg-green-400" />
+              <span className="ml-4 font-mono text-xs font-semibold text-gray-500">Kienex_ERP_Dashboard</span>
+            </div>
+            
+            {/* Dashboard Image */}
+            <div className="relative aspect-[16/10] w-full bg-white">
+              <img
+                src="/erp_dashboard.png"
+                alt="ERP Dashboard Interface"
+                className="h-full w-full object-cover object-top"
+              />
+              
+              {/* Overlay gradient to make it blend slightly at the bottom */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A2463]/10 to-transparent" />
+            </div>
+          </div>
 
+          {/* Floating stats badge to keep the dynamic feel */}
           <motion.div
-            className="absolute inset-x-6 top-8 rounded-3xl bg-[#4FB3D1]/10 p-7 shadow-sm"
+            className="absolute -bottom-6 -right-2 md:-right-6 rounded-xl border border-gray-100 bg-white p-4 shadow-xl"
             animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <div className="rounded-2xl bg-white p-5 shadow-xl">
-              <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-full bg-red-400" />
-                <span className="h-3 w-3 rounded-full bg-yellow-400" />
-                <span className="h-3 w-3 rounded-full bg-green-400" />
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#4FB3D1]/10 text-[#4FB3D1]">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
               </div>
-              <div className="mt-5 space-y-3">
-                <div className="h-3 w-3/4 rounded bg-gray-100" />
-                <div className="h-3 w-1/2 rounded bg-gray-200" />
-                <div className="h-16 rounded-lg bg-[#4FB3D1]/10" />
+              <div>
+                <p className="text-xs text-gray-500">Efficiency</p>
+                <p className="font-bold text-kienexBlue">+340%</p>
               </div>
             </div>
           </motion.div>
-
-          <motion.div
-            className="absolute bottom-12 left-10 w-52 rounded-xl bg-[#071225] p-5 text-white shadow-xl"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-          >
-            <p className="font-mono text-xs text-green-400">// ERP Solution</p>
-            <p className="mt-3 font-mono text-sm text-[#4FB3D1]">init()</p>
-            <p className="font-mono text-sm text-[#4FB3D1]">deploy()</p>
-          </motion.div>
-
-          <motion.div
-            className="absolute bottom-12 right-12 w-48 rounded-xl bg-white p-5 shadow-xl"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4.4, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
-          >
-            <p className="text-xs text-gray-500">Growth</p>
-            <p className="mt-2 text-3xl font-bold text-kienexBlue">+127%</p>
-            <div className="mt-3 h-2 rounded-full bg-gray-100">
-              <div className="h-2 w-4/5 rounded-full bg-[#4FB3D1]" />
-            </div>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="relative min-h-[360px] lg:hidden"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={fadeRight}
-          transition={{ ...smoothTransition, delay: 0.1 }}
-        >
-          <div className="rounded-3xl bg-[#4FB3D1]/10 p-5 shadow-sm">
-            <div className="rounded-2xl bg-white p-5 shadow-xl">
-              <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-full bg-red-400" />
-                <span className="h-3 w-3 rounded-full bg-yellow-400" />
-                <span className="h-3 w-3 rounded-full bg-green-400" />
-              </div>
-              <div className="mt-5 space-y-3">
-                <div className="h-3 w-3/4 rounded-lg bg-gray-100" />
-                <div className="h-3 w-1/2 rounded-lg bg-gray-200" />
-                <div className="scan-bar h-16 rounded-lg bg-[#4FB3D1]/10" />
-              </div>
-            </div>
-          </div>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl bg-[#071225] p-5 text-white shadow-xl">
-              <p className="text-xs text-[#4FB3D1]">// ERP Solution</p>
-              <p className="mt-3 font-mono text-sm text-green-300">init()</p>
-              <p className="font-mono text-sm text-green-300">deploy()</p>
-            </div>
-            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-xl">
-              <p className="text-xs text-gray-500">Growth</p>
-              <p className="mt-2 text-3xl font-bold text-kienexBlue">+127%</p>
-              <div className="mt-3 h-2 rounded-lg bg-gray-100">
-                <div className="h-2 w-4/5 rounded-lg bg-[#4FB3D1]" />
-              </div>
-            </div>
-          </div>
         </motion.div>
       </div>
 
