@@ -7,7 +7,7 @@ const companyNames = ['Gulf Trade', 'HealthCare Plus', 'FoodChain', 'ShipFast', 
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="border-t border-blue-50 bg-[#E6F0FF]">
+    <section id="reviews" className="border-t border-blue-50">
       <div className="section-shell max-w-none px-0 sm:px-0 lg:px-0">
         <motion.div
           className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8"

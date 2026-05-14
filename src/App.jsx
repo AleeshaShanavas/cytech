@@ -4,7 +4,6 @@ import { motion, useInView } from 'framer-motion'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
-import QuestionSection from './components/QuestionSection.jsx'
 import Services from './components/Services.jsx'
 import ServiceDetails from './components/ServiceDetails.jsx'
 import Products from './components/Products.jsx'
@@ -25,31 +24,25 @@ function HomePage() {
       <SectionReveal id="home" bgColor="bg-white z-0" animType="ring">
         <Hero />
       </SectionReveal>
-      <SectionReveal id="about" bgColor="bg-[#E6F0FF] z-10" animType="cube">
-        <About />
-      </SectionReveal>
-      <SectionReveal bgColor="bg-[#E6F0FF] z-20" animType="orb">
-        <QuestionSection />
-      </SectionReveal>
-      <SectionReveal id="services" bgColor="bg-white z-30" animType="pyramid">
-        <Services />
-      </SectionReveal>
-      <SectionReveal id="products" bgColor="bg-[#E6F0FF] z-40" animType="particles">
+      <SectionReveal id="products" bgColor="bg-[#E6F0FF] z-10" animType="grid">
         <Products />
       </SectionReveal>
-      <SectionReveal bgColor="bg-white z-50" animType="helix">
-        <LetsBuildSection />
+      <SectionReveal id="services" bgColor="bg-white z-20" animType="grid">
+        <Services />
       </SectionReveal>
-      <SectionReveal id="industries" bgColor="bg-[#E6F0FF] z-[60]" animType="grid">
+      <SectionReveal id="about" bgColor="bg-[#E6F0FF] z-30" animType="grid">
+        <About />
+      </SectionReveal>
+      <SectionReveal id="industries" bgColor="bg-white z-40" animType="grid">
         <Industries />
       </SectionReveal>
-      <SectionReveal id="technologies" bgColor="bg-white z-[70]" animType="cylinder">
+      <SectionReveal id="technologies" bgColor="bg-[#E6F0FF] z-50" animType="grid">
         <Technologies />
       </SectionReveal>
-      <SectionReveal id="reviews" bgColor="bg-[#E6F0FF] z-[80]" animType="wave">
+      <SectionReveal id="reviews" bgColor="bg-white z-60" animType="grid">
         <Reviews />
       </SectionReveal>
-      <SectionReveal id="contact" bgColor="bg-white z-[90]" animType="torus">
+      <SectionReveal id="contact" bgColor="bg-[#E6F0FF] z-70" animType="grid">
         <Contact />
       </SectionReveal>
     </div>
@@ -89,13 +82,32 @@ function FloatingTech3D({ type }) {
         )
       case 'pyramid':
         return (
-          <div className="absolute inset-0 flex items-center justify-center opacity-20">
-            <motion.div
-              className="h-[150vh] w-[150vw] bg-[linear-gradient(45deg,transparent_49%,#4FB3D1_49%,#4FB3D1_51%,transparent_51%),linear-gradient(-45deg,transparent_49%,#4FB3D1_49%,#4FB3D1_51%,transparent_51%)] bg-[size:100px_100px]"
-              style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
-              animate={{ rotateZ: [0, 360], scale: [1, 1.5, 1] }}
-              transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-            />
+          <div className="absolute inset-0 flex items-center justify-center opacity-30">
+            <div className="relative h-full w-full" style={{ perspective: '1000px' }}>
+              <motion.div
+                className="absolute inset-0 bg-[linear-gradient(to_right,#4FB3D120_1px,transparent_1px),linear-gradient(to_bottom,#4FB3D120_1px,transparent_1px)] bg-[size:50px_50px]"
+                animate={{ 
+                  rotateX: [60, 55, 60],
+                  y: [0, -50, 0],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+                style={{ transformOrigin: 'center bottom' }}
+              />
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={`l-${i}`}
+                  className="absolute left-1/2 top-1/2 h-[1px] w-[200%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#4FB3D1]/40 to-transparent"
+                  style={{ transformStyle: 'preserve-3d' }}
+                  animate={{ 
+                    rotateY: [0, 360],
+                    translateZ: [i * 100 - 200, i * 100 - 200],
+                    y: [i * 50 - 100, i * 50 - 100]
+                  }}
+                  transition={{ duration: 15, repeat: Infinity, ease: 'linear', delay: i * 2 }}
+                />
+              ))}
+            </div>
           </div>
         )
       case 'particles':
@@ -211,14 +223,15 @@ function SectionReveal({ children, bgColor = 'bg-white', id, animType = 'ring' }
   const isInView = useInView(ref, { amount: 0.1, once: false })
 
   return (
-    <div id={id} className={`relative md:sticky md:top-0 min-h-screen md:h-[100vh] w-full overflow-hidden shadow-[0_-15px_40px_rgba(0,0,0,0.1)] ${bgColor}`}>
+    <div id={id} className={`relative min-h-screen w-full overflow-hidden ${bgColor}`}>
       <FloatingTech3D type={animType} />
       <motion.div
         ref={ref}
-        className="relative z-10 h-full min-h-screen md:min-h-0 w-full overflow-x-hidden md:overflow-y-auto flex flex-col justify-center pt-20 pb-10 md:pt-16"
-        initial={{ opacity: 0, y: 60, scale: 0.95 }}
-        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.95 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-10 w-full flex flex-col justify-center pt-24 pb-12"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         {children}
       </motion.div>

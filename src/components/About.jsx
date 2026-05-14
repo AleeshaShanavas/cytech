@@ -1,162 +1,135 @@
-import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
-import { FaBriefcase, FaCheckCircle, FaGlobe, FaLightbulb, FaShieldAlt, FaStar, FaUsers } from 'react-icons/fa'
-import { fadeLeft, fadeRight, smoothTransition, viewport } from '../animation.js'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { FaCheckCircle, FaLightbulb, FaShieldAlt, FaUsers, FaChevronDown, FaClock, FaBriefcase, FaGlobe } from 'react-icons/fa'
+import { fadeUp, staggerContainer, zoomIn, viewport } from '../animation.js'
 
 const stats = [
-  { value: '10+', label: 'Years of Excellence', className: 'bg-white text-kienexBlue' },
-  { value: '500+', label: 'Happy Clients', className: 'bg-kienexBlue text-white' },
-  { value: '50+', label: 'Solutions', className: 'bg-[#4FB3D1] text-white' },
-  { value: '24/7', label: 'Support', className: 'bg-white text-kienexBlue' },
+  { value: '10+', label: 'Years', icon: FaClock },
+  { value: '500+', label: 'Happy Clients', icon: FaUsers },
+  { value: '50+', label: 'Solutions', icon: FaBriefcase },
+  { value: '24/7', label: 'Support', icon: FaGlobe },
 ]
-
-const points = ['ISO 9001:2015 Certified Company', 'Award-winning Software Solutions', 'Trusted by Global Clients', 'Custom & Scalable Solutions']
 
 const highlights = [
-  { icon: FaLightbulb, title: 'Innovative Solutions' },
-  { icon: FaUsers, title: 'Expert Team' },
-  { icon: FaShieldAlt, title: 'Reliable Support' },
+  { icon: FaLightbulb, title: 'Innovative Solutions', text: 'Cutting-edge approaches to complex problems.' },
+  { icon: FaUsers, title: 'Expert Team', text: 'Senior engineers with decades of experience.' },
+  { icon: FaShieldAlt, title: 'Reliable Support', text: 'Always here to keep your systems running.' },
 ]
 
-const countStats = [
-  { icon: FaUsers, value: 500, suffix: '+', label: 'Happy Clients' },
-  { icon: FaGlobe, value: 20, suffix: '+', label: 'Countries' },
-  { icon: FaBriefcase, value: 1000, suffix: '+', label: 'Projects' },
-  { icon: FaStar, value: 98, suffix: '%', label: 'Satisfaction' },
+const questionPoints = [
+  {
+    title: 'Transparent Delivery',
+    text: 'We keep communication clear, timelines practical, and project visibility strong from start to launch.',
+  },
+  {
+    title: 'Engineering Support',
+    text: 'From planning and design to development and QA, Kienex supports every stage with a dependable team.',
+  },
+  {
+    title: 'Modern Tech Expertise',
+    text: 'We apply scalable engineering practices, secure stacks, and maintainable architecture for long-term value.',
+  },
 ]
 
 export default function About() {
-  const aboutRef = useRef(null)
-  const [countRun, setCountRun] = useState(0)
-
-  useEffect(() => {
-    const node = aboutRef.current
-    if (!node) return undefined
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setCountRun((run) => run + 1)
-        }
-      },
-      { threshold: 0.2 },
-    )
-
-    observer.observe(node)
-    return () => observer.disconnect()
-  }, [])
+  const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section id="about" ref={aboutRef} className="border-t border-blue-50 bg-[#E6F0FF]">
-      <div className="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
-        <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={fadeLeft} transition={smoothTransition}>
-          <div className="relative rounded-2xl bg-[#4FB3D1]/10 p-6">
-            <div className="about-ring pointer-events-none absolute -right-5 -top-8 h-24 w-24 rounded-full border-2 border-dashed border-kienexBlue/20" />
-            <div className="about-ring pointer-events-none absolute -left-6 bottom-8 h-16 w-16 rounded-full border-2 border-dashed border-[#4FB3D1]/30" style={{ animationDirection: 'reverse', animationDuration: '9s' }} />
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className={`rounded-xl p-6 shadow-lg ${stat.className}`}>
-                  <p className="text-3xl font-bold">{stat.value}</p>
-                  <p className="mt-2 text-sm opacity-80">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-        <motion.div
-          className="space-y-5 leading-7 text-black"
-          initial="hidden"
-          whileInView="visible"
+    <section className="relative overflow-hidden font-['Inter',sans-serif]">
+      {/* Subtle Mesh Gradients */}
+      <div className="pointer-events-none absolute left-0 top-0 h-[500px] w-[500px] bg-[radial-gradient(circle_at_0%_0%,#00339908_0%,transparent_70%)]" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-[500px] w-[500px] bg-[radial-gradient(circle_at_100%_100%,#00339908_0%,transparent_70%)]" />
+
+      <div className="section-shell relative z-10">
+        {/* 1. The Impact Bar (Top Section) */}
+        <motion.div 
+          className="mb-20 overflow-hidden rounded-2xl border border-white/40 bg-white/40 p-1 shadow-[0_8px_32px_rgba(0,51,153,0.05)] backdrop-blur-xl"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
-          variants={fadeRight}
-          transition={{ ...smoothTransition, delay: 0.1 }}
+          transition={{ duration: 0.8 }}
         >
-          <span className="inline-block rounded-full bg-kienexBlue/10 px-4 py-2 text-sm font-medium text-kienexBlue">
-            About Us
-          </span>
-          <h2 className="text-3xl font-bold leading-tight text-kienexBlue md:text-4xl">
-            Transforming Businesses Through Technology
-          </h2>
-          <p className="text-gray-600">
-            At Kienex, we are committed to delivering world-class software solutions that drive business growth and operational efficiency. We help organizations transform their digital landscape with reliable technology.
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {points.map((point) => (
-              <div key={point} className="flex items-center gap-3 text-sm text-gray-700">
-                <FaCheckCircle className="shrink-0 text-kienexBlue" />
-                <span>{point}</span>
-              </div>
-            ))}
-          </div>
-          <div className="grid gap-4 pt-3 sm:grid-cols-3">
-            {highlights.map((item) => {
-              const Icon = item.icon
+          <div className="grid grid-cols-2 divide-gray-200/50 sm:grid-cols-4 sm:divide-x">
+            {stats.map((stat, i) => {
+              const Icon = stat.icon
               return (
-                <div key={item.title} className="rounded-xl bg-white p-4 text-center shadow-sm border border-blue-50">
-                  <Icon className="mx-auto text-2xl text-kienexBlue" />
-                  <p className="mt-3 text-sm font-bold text-gray-900">{item.title}</p>
+                <div key={i} className="flex items-center justify-center gap-4 py-6 px-4 transition-colors hover:bg-white/30">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#00339910] text-[#003399]">
+                    <Icon className="text-lg" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-black leading-none text-[#003399]">{stat.value}</p>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-gray-500">{stat.label}</p>
+                  </div>
                 </div>
               )
             })}
           </div>
         </motion.div>
-      </div>
 
-      <div className="count-grid relative overflow-hidden bg-white border-t border-blue-50">
-        <div className="about-ring pointer-events-none absolute right-12 top-10 h-24 w-24 rounded-full border-2 border-dashed border-kienexBlue/20" />
-        <div className="about-ring pointer-events-none absolute left-10 bottom-10 h-16 w-16 rounded-full border-2 border-dashed border-[#4FB3D1]/40" style={{ animationDirection: 'reverse', animationDuration: '9s' }} />
-        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {countStats.map((stat, index) => {
-            const Icon = stat.icon
-            return (
-              <motion.div
-                key={stat.label}
-                className="text-center text-gray-900"
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={viewport}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 shadow-sm border border-blue-100 text-kienexBlue">
-                  <Icon className="text-2xl" />
-                </div>
-                <p className="mt-5 text-4xl font-bold text-kienexBlue">
-                  <CountUp value={stat.value} suffix={stat.suffix} run={countRun} />
-                </p>
-                <p className="mt-2 text-sm font-semibold text-gray-600">{stat.label}</p>
-              </motion.div>
-            )
-          })}
+        {/* 2. The Narrative Zone (Bottom Section) */}
+        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+          {/* Left Column (3D Visual / Dashboard) */}
+          <motion.div 
+            className="group relative"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            variants={zoomIn}
+          >
+            <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-tr from-[#00339910] to-[#00339905] blur-2xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-white bg-white p-2 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+              <img 
+                src="/kienex_dashboard.png" 
+                alt="Kienex Dashboard" 
+                className="h-full w-full rounded-2xl object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#00339920] to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+            </div>
+          </motion.div>
+
+          {/* Right Column (The Story) */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            variants={staggerContainer}
+            className="flex flex-col"
+          >
+            <motion.span variants={fadeUp} className="inline-block w-fit rounded-full bg-[#00339910] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#003399]">
+              About Kienex
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="mt-6 text-4xl font-extrabold leading-[1.2] text-[#003399] md:text-5xl">
+              Transforming Businesses Through <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#003399] to-[#0066cc]">Technology.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="mt-6 text-lg leading-relaxed text-gray-600">
+              At Kienex, we deliver world-class software solutions that drive business growth and operational efficiency. We help organizations transform their digital landscape with reliable, scalable technology.
+            </motion.p>
+
+            {/* The "Core Three" Mini Cards */}
+            <div className="mt-10 grid gap-4">
+              {highlights.map((item, i) => {
+                const Icon = item.icon
+                return (
+                  <motion.div 
+                    key={i} 
+                    variants={fadeUp}
+                    className="flex items-start gap-4 rounded-2xl border border-white bg-white p-5 shadow-sm transition-all hover:border-[#00339920] hover:shadow-md"
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#00339905] text-[#003399]">
+                      <Icon className="text-xl" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[#003399]">{item.title}</h4>
+                      <p className="mt-1 text-sm text-gray-500">{item.text}</p>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   )
-}
-
-function CountUp({ value, suffix, run }) {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!run) return undefined
-
-    let frameId
-    const duration = 1300
-    const startTime = performance.now()
-    setCount(0)
-
-    const tick = (now) => {
-      const progress = Math.min((now - startTime) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.round(value * eased))
-
-      if (progress < 1) {
-        frameId = requestAnimationFrame(tick)
-      }
-    }
-
-    frameId = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(frameId)
-  }, [run, value])
-
-  return <span>{count}{suffix}</span>
 }

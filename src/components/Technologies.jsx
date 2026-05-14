@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer, viewport, zoomIn } from '../animation.js'
 
 export default function Technologies() {
   return (
-    <section className="border-t border-gray-100 bg-white">
+    <section className="border-t border-gray-100">
       <div className="section-shell">
         <motion.div
           className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-end md:justify-between"

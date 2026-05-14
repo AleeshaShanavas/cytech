@@ -5,8 +5,8 @@ export default function LetsBuildSection() {
   const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section className="border-t border-gray-100 bg-white">
-      <div className="section-shell">
+    <section>
+      <div className="section-shell pt-10 lg:pt-16">
         <motion.div
           className="mx-auto max-w-4xl text-center"
           initial="hidden"
