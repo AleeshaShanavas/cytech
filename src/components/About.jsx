@@ -84,7 +84,7 @@ export default function About() {
             >
               <div className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
                 <img 
-                  src="./kienex_dashboard.png" 
+                  src="/kienex_dashboard.png" 
                   alt="Kienex Dashboard" 
                   className="h-full w-full object-contain"
                 />
