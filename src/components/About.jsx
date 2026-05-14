@@ -75,21 +75,19 @@ export default function About() {
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           {/* Left Column (Balanced Image + 2x2 Stats) */}
           <div className="flex flex-col gap-8">
-            <motion.div
+            <motion.div 
               className="group relative"
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
               variants={zoomIn}
             >
-              <div className="absolute -inset-4 rounded-[30px] bg-gradient-to-tr from-[#00339910] to-[#00339905] blur-2xl" />
-              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white bg-white p-1.5 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
-                <img
-                  src="/kienex_dashboard.png"
-                  alt="Kienex Dashboard"
-                  className="h-full w-full object-cover object-top"
+              <div className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                <img 
+                  src="./kienex_dashboard.png" 
+                  alt="Kienex Dashboard" 
+                  className="h-full w-full object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#00339915] to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
             </motion.div>
 
@@ -98,8 +96,8 @@ export default function About() {
               {stats.map((stat, i) => {
                 const Icon = stat.icon
                 return (
-                  <motion.div
-                    key={i}
+                  <motion.div 
+                    key={i} 
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={viewport}
@@ -120,7 +118,7 @@ export default function About() {
           </div>
 
           {/* Right Column (The Story) */}
-          <motion.div
+          <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
@@ -142,8 +140,8 @@ export default function About() {
               {highlights.map((item, i) => {
                 const Icon = item.icon
                 return (
-                  <motion.div
-                    key={i}
+                  <motion.div 
+                    key={i} 
                     variants={fadeUp}
                     className="flex items-start gap-4 rounded-2xl border border-white bg-white p-5 shadow-sm transition-all hover:border-[#00339920] hover:shadow-md"
                   >
